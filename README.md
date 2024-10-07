@@ -10,13 +10,13 @@ sudo ostree admin pin 0
 2. Rebase to the image:
 
 ```
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/adamthiede/immutable-os:latest
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/adamthiede/bluefin-gnome:latest
 ```
 
 3. Rebase to the image in a verified way??
 
 ```
-rpm-ostree rebase ostree-image-signed:docker://ghcr.io/adamthiede/immutable-os:latest
+rpm-ostree rebase ostree-image-signed:docker://ghcr.io/adamthiede/bluefin-gnome:latest
 ```
 
 That's it.
