@@ -23,7 +23,8 @@ rpm-ostree override remove \
 	--install vim-default-editor
 
 # install preferred packages
-rpm-ostree install mpv ffmpeg sway sway-config-upstream foot j4-dmenu-desktop \
+rpm-ostree install mpv ffmpeg yt-dlp \
+	sway sway-config-upstream foot j4-dmenu-desktop \
 	bemenu fzf git curl htop neovim vim tmux go rbw wmenu \
 	xfce-polkit terminus-fonts wl-clipboard w3m aerc \
 	android-tools aria2 btop cargo rust curl dino discount \
