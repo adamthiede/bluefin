@@ -20,12 +20,13 @@ rpm-ostree override remove \
 	firefox firefox-langpacks \
 	virtualbox-guest-additions \
 	nano nano-default-editor \
+	gnome-software \
 	--install vim-default-editor
 
 # install preferred packages
 rpm-ostree install mpv ffmpeg yt-dlp \
 	sway sway-config-upstream foot j4-dmenu-desktop \
-	bemenu fzf git curl htop neovim vim tmux go rbw wmenu \
+	bemenu fzf git curl htop neovim vim tmux go \
 	xfce-polkit terminus-fonts wl-clipboard w3m aerc \
 	android-tools aria2 btop cargo rust curl dino discount \
 	doas fastfetch flashrom imv isync \
