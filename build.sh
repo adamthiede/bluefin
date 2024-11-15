@@ -17,7 +17,6 @@ rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-rele
 # remove some base packages
 
 rpm-ostree override remove \
-	firefox firefox-langpacks \
 	virtualbox-guest-additions \
 	nano nano-default-editor \
 	gnome-software plocate \
@@ -32,7 +31,7 @@ rpm-ostree install mpv ffmpeg yt-dlp \
 	fastfetch flashrom imv isync \
 	jq keepassxc mosh mousepad mpc ncmpcpp \
 	ncdu nethack newsboat nmap rsync seahorse \
-	gvfs-nfs virt-manager yadm \
+	gvfs-nfs virt-manager \
 	NetworkManager-tui syncthing tailscale
 
 #### Example for enabling a System Unit File
