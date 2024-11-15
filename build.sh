@@ -32,7 +32,7 @@ rpm-ostree install mpv ffmpeg yt-dlp \
 	fastfetch flashrom imv isync \
 	jq keepassxc mosh mousepad mpc ncmpcpp \
 	ncdu nethack newsboat nmap rsync seahorse \
-	gvfs-nfs virt-manager \
+	gvfs-nfs virt-manager yadm \
 	NetworkManager-tui syncthing tailscale
 
 #### Example for enabling a System Unit File
