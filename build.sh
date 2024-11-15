@@ -21,6 +21,7 @@ rpm-ostree override remove \
 	virtualbox-guest-additions \
 	nano nano-default-editor \
 	gnome-software plocate \
+	yelp \
 	--install vim-default-editor
 
 # install preferred packages
