@@ -17,6 +17,7 @@ rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-rele
 # remove some base packages
 
 rpm-ostree override remove \
+	firefox firefox-langpacks \
 	virtualbox-guest-additions \
 	nano nano-default-editor \
 	gnome-software plocate \
