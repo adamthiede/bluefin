@@ -20,7 +20,7 @@ rpm-ostree override remove \
 	firefox firefox-langpacks \
 	virtualbox-guest-additions \
 	nano nano-default-editor \
-	gnome-software \
+	gnome-software plocate \
 	--install vim-default-editor
 
 # install preferred packages
