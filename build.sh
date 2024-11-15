@@ -26,14 +26,13 @@ rpm-ostree override remove \
 
 # install preferred packages
 rpm-ostree install mpv ffmpeg yt-dlp \
-	sway sway-config-upstream foot j4-dmenu-desktop \
-	bemenu fzf git curl htop neovim vim tmux go \
-	xfce-polkit terminus-fonts wl-clipboard w3m aerc \
+	fzf git curl htop neovim vim tmux go \
+	wl-clipboard w3m aerc bemenu \
 	android-tools aria2 btop cargo rust curl dino discount \
-	doas fastfetch flashrom imv isync \
-	jq kanshi keepassxc mosh mousepad mpc ncmpcpp \
-	ncdu nethack newsboat nmap pmbootstrap rsync seahorse \
-	gvfs-nfs fedora-flathub-remote \
+	fastfetch flashrom imv isync \
+	jq keepassxc mosh mousepad mpc ncmpcpp \
+	ncdu nethack newsboat nmap rsync seahorse \
+	gvfs-nfs \
 	NetworkManager-tui syncthing tailscale
 
 #### Example for enabling a System Unit File
