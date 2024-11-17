@@ -7,30 +7,17 @@ RELEASE="$(rpm -E %fedora)"
 
 ### Install packages
 
-rpm-ostree install \
-    fedora-repos-archive
-
-# use negativo17 for 3rd party packages with higher priority than default
-curl -Lo /etc/yum.repos.d/negativo17-fedora-multimedia.repo https://negativo17.org/repos/fedora-multimedia.repo
-sed -i '0,/enabled=1/{s/enabled=1/enabled=1\npriority=90/}' /etc/yum.repos.d/negativo17-fedora-multimedia.repo
-
 # use override to replace mesa and others with less crippled versions
-rpm-ostree override replace \
-  --experimental \
-  --from repo='fedora-multimedia' \
-    libheif \
-    libva \
-    ffmpeg \
-    libva-intel-media-driver \
-    mesa-dri-drivers \
-    mesa-filesystem \
-    mesa-libEGL \
-    mesa-libGL \
-    mesa-libgbm \
-    mesa-libglapi \
-    mesa-libxatracker \
-    mesa-va-drivers \
-    mesa-vulkan-drivers
+
+rpm-ostree override remove \
+    libavcodec-free \
+    libavfilter-free \
+    libavformat-free \
+    libavutil-free \
+    libpostproc-free \
+    libswresample-free \
+    libswscale-free \
+    --install ffmpeg
 
 # Packages can be installed from any enabled yum repo on the image.
 # RPMfusion repos are available by default in ublue main images
