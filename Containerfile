@@ -2,7 +2,7 @@ ARG FEDORA="41"
 FROM quay.io/fedora-ostree-desktops/silverblue:${FEDORA}
 
 # install multimedia stuff for intel
-RUN rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-${FEDORA}.noarch.rpm && \
+RUN rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" && \
 	rpm-ostree install rpmfusion-free-release-tainted && \
 	rpm-ostree override remove \
 	    ffmpeg-free \
@@ -37,11 +37,10 @@ RUN rpm-ostree install \
   apr \
   apr-util \
   aria2 \
+  bemenu \
   btop \
   cargo \
   curl \
-  curl \
-  dino \
   discount \
   distrobox \
   fastfetch \
@@ -65,6 +64,7 @@ RUN rpm-ostree install \
   imv \
   intel-vaapi-driver \
   isync \
+  j4-dmenu-desktop \
   jq \
   just \
   keepassxc \
@@ -98,6 +98,9 @@ RUN rpm-ostree install \
   pipewire-plugin-libcamera \
   powerstat \
   river \
+  sway \
+  swaylock \
+  swayidle \
   rsync \
   rust \
   seahorse \
@@ -112,6 +115,7 @@ RUN rpm-ostree install \
   vim \
   virt-manager \
   w3m \
+  waybar \
   wireguard-tools \
   wl-clipboard \
   yt-dlp \
