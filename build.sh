@@ -7,7 +7,9 @@ RELEASE="$(rpm -E %fedora)"
 
 ### Install packages
 
-# use override to replace mesa and others with less crippled versions
+rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+
+rpm-ostree install rpmfusion-free-release-tainted
 
 rpm-ostree override remove \
     libavcodec-free \
@@ -18,15 +20,6 @@ rpm-ostree override remove \
     libswresample-free \
     libswscale-free \
     --install ffmpeg
-
-# Packages can be installed from any enabled yum repo on the image.
-# RPMfusion repos are available by default in ublue main images
-# List of rpmfusion packages can be found here:
-# https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
-
-rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-
-# remove some base packages
 
 rpm-ostree override remove \
 	firefox firefox-langpacks \
@@ -83,6 +76,7 @@ rpm-ostree install \
   libcamera-gstreamer \
   libcamera-ipa \
   libcamera-tools \
+  libdvdcss \
   libfdk-aac \
   libratbag-ratbagd \
   libva-utils \
