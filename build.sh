@@ -50,7 +50,7 @@ rpm-ostree override remove \
 
 # install preferred packages
 rpm-ostree install \
-  NetworkManager-tui \ 
+  NetworkManager-tui \
   adw-gtk3-theme \
   aerc \
   alsa-firmware \
