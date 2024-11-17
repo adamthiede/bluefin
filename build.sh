@@ -12,7 +12,9 @@ rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-rele
 rpm-ostree install rpmfusion-free-release-tainted
 
 rpm-ostree override remove \
+    ffmpeg-free \
     libavcodec-free \
+    libavdevice-free \
     libavfilter-free \
     libavformat-free \
     libavutil-free \
@@ -77,7 +79,6 @@ rpm-ostree install \
   libcamera-ipa \
   libcamera-tools \
   libdvdcss \
-  libfdk-aac \
   libratbag-ratbagd \
   libva-utils \
   lshw \
@@ -99,7 +100,6 @@ rpm-ostree install \
   pam-u2f \
   pam_yubico \
   pamu2fcfg \
-  pipewire-libs-extra \
   pipewire-plugin-libcamera \
   powerstat \
   river \
