@@ -20,6 +20,7 @@ rpm-ostree override replace \
   --from repo='fedora-multimedia' \
     libheif \
     libva \
+    ffmpeg \
     libva-intel-media-driver \
     mesa-dri-drivers \
     mesa-filesystem \
@@ -66,14 +67,10 @@ rpm-ostree install \
   discount \
   distrobox \
   fastfetch \
-  ffmpeg \
-  ffmpeg \
-  ffmpeg-libs \
   ffmpegthumbnailer \
   flashrom \
   flatpak-spawn \
   fuse \
-  fzf \
   fzf \
   git \
   gnome-epub-thumbnailer \
@@ -87,7 +84,6 @@ rpm-ostree install \
   gvfs-nfs \
   gvfs-nfs \
   heif-pixbuf-loader \
-  htop \
   htop \
   imv \
   intel-vaapi-driver \
