@@ -64,7 +64,6 @@ rpm-ostree install \
   google-noto-sans-sundanese-fonts \
   grub2-tools-extra \
   gvfs-nfs \
-  gvfs-nfs \
   heif-pixbuf-loader \
   htop \
   imv \
@@ -113,14 +112,11 @@ rpm-ostree install \
   tailscale \
   tcpdump \
   tmux \
-  tmux \
   traceroute \
-  vim \
   vim \
   virt-manager \
   w3m \
   wireguard-tools \
-  wl-clipboard \
   wl-clipboard \
   yt-dlp \
   yubikey-manager \
