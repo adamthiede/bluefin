@@ -125,7 +125,7 @@ RUN rpm-ostree install \
 
 RUN mkdir -p /var/lib/alternatives && \
     curl -L https://github.com/ublue-os/config/raw/main/files/usr/etc/containers/policy.json -o /etc/containers/policy.json && \
-    sed -i /etc/rpm-ostreed.conf -e 's,#AutomaticUpdatePolicy.*,AutomaticUpdatePolicy=stage,g' && \
+    echo -e "[Daemon]\nAutomaticUpdatePolicy=stage\n" > /etc/rpm-ostreed.conf && \
     systemctl enable rpm-ostreed-automatic.timer && \
     ostree container commit
 ## NOTES:
