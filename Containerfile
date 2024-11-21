@@ -96,6 +96,7 @@ RUN rpm-ostree install \
   pam_yubico \
   pamu2fcfg \
   pipewire-plugin-libcamera \
+  power-profiles-daemon \
   powerstat \
   river \
   sway \
