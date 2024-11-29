@@ -51,6 +51,7 @@ RUN rpm-ostree install \
   fzf \
   git \
   gnome-epub-thumbnailer \
+  gnome-themes-extra \
   gnome-tweaks \
   go \
   google-noto-sans-balinese-fonts \
