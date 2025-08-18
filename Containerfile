@@ -51,6 +51,10 @@ COPY configs/xsettings-default.xml /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xse
 COPY configs/xfce4-power-manager.xml /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
 COPY configs/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
 
+COPY ostree-notify/ostree-notify.sh /usr/bin/ostree-notify.sh
+COPY ostree-notify/ostree-notify.timer /etc/systemd/user/ostree-notify.timer
+COPY ostree-notify/ostree-notify.service /etc/systemd/user/ostree-notify.service
+
 RUN mkdir -p /var/lib/alternatives && \
     curl -L https://github.com/ublue-os/config/raw/main/files/usr/etc/containers/policy.json -o /etc/containers/policy.json && \
     echo -e "[Daemon]\nAutomaticUpdatePolicy=stage\n" > /etc/rpm-ostreed.conf && \

@@ -1,0 +1,9 @@
+[Unit]
+Description=rpm-ostree notification of staged deployment
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/ostree-notify.sh
+
+[Install]
+WantedBy=default.target
