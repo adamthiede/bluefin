@@ -56,6 +56,7 @@ RUN mkdir -p /var/lib/alternatives && \
     systemctl enable rpm-ostreed-automatic.timer && \
     systemctl enable keyd.service && \
     systemctl disable NetworkManager-wait-online.service && \
+    cp /usr/share/applications/redshift-gtk.desktop /etc/xdg/autostart/ && \
     ostree container commit
 ## NOTES:
 # - /var/lib/alternatives is required to prevent failure with some RPM installs
