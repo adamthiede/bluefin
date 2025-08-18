@@ -7,6 +7,7 @@ RUN rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 	rpm-ostree install \
 		alsa-firmware \
 		fuse \
+		redshift-gtk \
 		gnome-themes-extra \
 		google-noto-sans-cjk-fonts \
 		intel-vaapi-driver \
@@ -26,7 +27,6 @@ RUN rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 	    gparted \
 	    anaconda-core anaconda-gui anaconda-tui \
 	    initial-setup-gui-wayland-generic initial-setup initial-setup-gui \
-	    firefox firefox-langpacks \
 	    virtualbox-guest-additions \
 	    nano nano-default-editor \
 	    mint-x-icons \
