@@ -29,6 +29,7 @@ RUN rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 		libswresample-free \
 		libswscale-free \
 		gparted \
+		flatpak fedora-flathub-remote \
 		ModemManager NetworkManager-wwan NetworkManager-bluetooth \
 		anaconda-core anaconda-gui anaconda-tui \
 		initial-setup-gui-wayland-generic initial-setup initial-setup-gui \
