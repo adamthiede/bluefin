@@ -26,7 +26,7 @@ RUN rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 		libswresample-free \
 		libswscale-free \
 		gparted \
-		ModemManager \
+		ModemManager NetworkManager-wwan NetworkManager-bluetooth \
 		anaconda-core anaconda-gui anaconda-tui \
 		initial-setup-gui-wayland-generic initial-setup initial-setup-gui \
 		virtualbox-guest-additions \
