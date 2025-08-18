@@ -17,6 +17,7 @@ RUN rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 		elementary-xfce-icon-theme \
 		intel-vaapi-driver \
 		libdvdcss \
+		mozilla-ublock-origin \
 		pipewire-plugin-libcamera && \
 	rpm-ostree override remove \
 		ffmpeg-free \
