@@ -10,6 +10,7 @@ RUN rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 		fuse \
 		redshift-gtk \
 		keyd \
+		libreoffice-calc libreoffice-impress libreoffice-writer \
 		gnome-themes-extra \
 		google-noto-sans-cjk-fonts \
 		intel-vaapi-driver \
