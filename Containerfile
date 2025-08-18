@@ -4,10 +4,12 @@ FROM quay.io/fedora-ostree-desktops/xfce-atomic:${FEDORA}
 # install multimedia stuff; remove annoyances
 RUN rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" && \
 	rpm-ostree install rpmfusion-free-release-tainted && \
+	rpm-ostree install https://repos.fyralabs.com/terra$(rpm -E %fedora)/terra-release-0:$(rpm -E %fedora)-4.noarch.rpm && \
 	rpm-ostree install \
 		alsa-firmware \
 		fuse \
 		redshift-gtk \
+		keyd \
 		gnome-themes-extra \
 		google-noto-sans-cjk-fonts \
 		intel-vaapi-driver \
