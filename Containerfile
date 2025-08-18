@@ -9,9 +9,9 @@ RUN rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 		fuse \
 		gnome-themes-extra \
 		google-noto-sans-cjk-fonts \
-		htop \
 		intel-vaapi-driver \
 		libdvdcss \
+		keyd \
 		pipewire-plugin-libcamera && \
 	rpm-ostree override remove \
 	    ffmpeg-free \
@@ -23,6 +23,7 @@ RUN rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 	    libpostproc-free \
 	    libswresample-free \
 	    libswscale-free \
+	    gparted \
 	    anaconda-core anaconda-gui anaconda-tui \
 	    initial-setup-gui-wayland-generic initial-setup initial-setup-gui \
 	    firefox firefox-langpacks \
