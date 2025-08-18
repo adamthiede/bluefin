@@ -13,6 +13,7 @@ RUN rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 		libreoffice-calc libreoffice-impress libreoffice-writer \
 		gnome-themes-extra \
 		google-noto-sans-cjk-fonts \
+		elementary-xfce-icon-theme \
 		intel-vaapi-driver \
 		libdvdcss \
 		pipewire-plugin-libcamera && \
