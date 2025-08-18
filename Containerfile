@@ -16,26 +16,27 @@ RUN rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 		libdvdcss \
 		pipewire-plugin-libcamera && \
 	rpm-ostree override remove \
-	    ffmpeg-free \
-	    libavcodec-free \
-	    libavdevice-free \
-	    libavfilter-free \
-	    libavformat-free \
-	    libavutil-free \
-	    libpostproc-free \
-	    libswresample-free \
-	    libswscale-free \
-	    gparted \
-	    anaconda-core anaconda-gui anaconda-tui \
-	    initial-setup-gui-wayland-generic initial-setup initial-setup-gui \
-	    virtualbox-guest-additions \
-	    nano nano-default-editor \
-	    mint-x-icons \
-	    mint-y-icons \
-	    mint-y-theme \
-	    plocate \
-	    --install vim-default-editor \
-	    --install ffmpeg && \
+		ffmpeg-free \
+		libavcodec-free \
+		libavdevice-free \
+		libavfilter-free \
+		libavformat-free \
+		libavutil-free \
+		libpostproc-free \
+		libswresample-free \
+		libswscale-free \
+		gparted \
+		ModemManager \
+		anaconda-core anaconda-gui anaconda-tui \
+		initial-setup-gui-wayland-generic initial-setup initial-setup-gui \
+		virtualbox-guest-additions \
+		nano nano-default-editor \
+		mint-x-icons \
+		mint-y-icons \
+		mint-y-theme \
+		plocate \
+		--install vim-default-editor \
+		--install ffmpeg && \
 	ostree container commit
 
 RUN mkdir -p /var/lib/alternatives && \
