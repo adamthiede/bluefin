@@ -2,5 +2,6 @@
 rpm-ostree status --pending-exit-77
 ec=$?
 if [[ $ec == 77 ]];then
-	notify-send "System Updates" "Updates have been applied. Please reboot at your earliest convenience."
+	# 60 second persistent notification
+	notify-send -t 60000 "System Updates Notification" "Updates have been applied, and a reboot is required to use the updated system."
 fi
