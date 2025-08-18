@@ -4,6 +4,15 @@ FROM quay.io/fedora-ostree-desktops/xfce-atomic:${FEDORA}
 # install multimedia stuff; remove annoyances
 RUN rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" && \
 	rpm-ostree install rpmfusion-free-release-tainted && \
+	rpm-ostree install \
+		alsa-firmware \
+		fuse \
+		gnome-themes-extra \
+		google-noto-sans-cjk-fonts \
+		htop \
+		intel-vaapi-driver \
+		libdvdcss \
+		pipewire-plugin-libcamera && \
 	rpm-ostree override remove \
 	    ffmpeg-free \
 	    libavcodec-free \
@@ -26,18 +35,6 @@ RUN rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 	    --install vim-default-editor \
 	    --install ffmpeg && \
 	ostree container commit
-
-# preferred packages
-RUN rpm-ostree install \
-  alsa-firmware \
-  fuse \
-  gnome-themes-extra \
-  google-noto-sans-cjk-fonts \
-  htop \
-  intel-vaapi-driver \
-  libdvdcss \
-  pipewire-plugin-libcamera && \
-  ostree container commit
 
 RUN mkdir -p /var/lib/alternatives && \
     curl -L https://github.com/ublue-os/config/raw/main/files/usr/etc/containers/policy.json -o /etc/containers/policy.json && \
