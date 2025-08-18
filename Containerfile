@@ -26,6 +26,9 @@ RUN rpm-ostree override remove \
 	mint-y-icons \
 	mint-y-theme \
 	anaconda-core \
+	anaconda-tui \
+	anaconda-gui \
+	toolbox \
 	podman \
  	plocate \
 	--install vim-default-editor && \
