@@ -1,4 +1,5 @@
-ARG FEDORA="42"
+ARG FEDORA=$(curl 'https://bodhi.fedoraproject.org/releases/?state=current'|jq -r '.releases[]|select(.name|startswith("F"))|.version'|sort -r|head -n1)
+# get latest fedora version at all times
 FROM quay.io/fedora-ostree-desktops/xfce-atomic:${FEDORA}
 
 # install multimedia stuff; remove annoyances
