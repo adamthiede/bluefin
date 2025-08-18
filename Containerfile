@@ -1,5 +1,5 @@
-ARG FEDORA="41"
-FROM quay.io/fedora-ostree-desktops/silverblue:${FEDORA}
+ARG FEDORA="42"
+FROM quay.io/fedora-ostree-desktops/xfce-atomic:${FEDORA}
 
 # install multimedia stuff for intel
 RUN rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" && \
@@ -23,105 +23,23 @@ RUN rpm-ostree override remove \
 	virtualbox-guest-additions \
 	nano nano-default-editor \
  	plocate \
-	yelp gnome-tour \
 	--install vim-default-editor && \
     ostree container commit
 
 # preferred packages
 RUN rpm-ostree install \
   NetworkManager-tui \
-  adw-gtk3-theme \
-  aerc \
   alsa-firmware \
-  android-tools \
-  apr \
-  apr-util \
-  aria2 \
-  bemenu \
-  btop \
-  cargo \
-  curl \
-  discount \
-  distrobox \
-  fastfetch \
-  ffmpegthumbnailer \
-  flashrom \
-  flatpak-spawn \
   fuse \
-  fzf \
-  git \
-  gnome-epub-thumbnailer \
   gnome-themes-extra \
-  gnome-tweaks \
-  go \
   google-noto-sans-balinese-fonts \
   google-noto-sans-cjk-fonts \
   google-noto-sans-javanese-fonts \
   google-noto-sans-sundanese-fonts \
-  grub2-tools-extra \
-  gvfs-nfs \
-  heif-pixbuf-loader \
   htop \
-  imv \
   intel-vaapi-driver \
-  isync \
-  j4-dmenu-desktop \
-  jq \
-  just \
-  keepassxc \
-  kernel-tools \
-  libcamera \
-  libcamera-gstreamer \
-  libcamera-ipa \
-  libcamera-tools \
   libdvdcss \
-  libratbag-ratbagd \
-  libva-utils \
-  lshw \
-  mosh \
-  mousepad \
-  mpc \
-  mpv \
-  ncdu \
-  ncmpcpp \
-  neovim \
-  net-tools \
-  nethack \
-  newsboat \
-  nmap \
-  nvme-cli \
-  nvtop \
-  openrgb-udev-rules \
-  openssl \
-  pam-u2f \
-  pam_yubico \
-  pamu2fcfg \
-  pipewire-plugin-libcamera \
-  powerstat \
-  river \
-  sway \
-  swaylock \
-  swayidle \
-  rsync \
-  rust \
-  seahorse \
-  smartmontools \
-  squashfs-tools \
-  symlinks \
-  syncthing \
-  tailscale \
-  tcpdump \
-  tmux \
-  traceroute \
-  vim \
-  virt-manager \
-  w3m \
-  waybar \
-  wireguard-tools \
-  wl-clipboard \
-  yt-dlp \
-  yubikey-manager \
-  zstd && \
+  pipewire-plugin-libcamera && \
   ostree container commit
 
 RUN mkdir -p /var/lib/alternatives && \
