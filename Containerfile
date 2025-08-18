@@ -1,7 +1,7 @@
 ARG FEDORA="42"
 FROM quay.io/fedora-ostree-desktops/xfce-atomic:${FEDORA}
 
-# install multimedia stuff for intel
+# install multimedia stuff; remove annoyances
 RUN rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" && \
 	rpm-ostree install rpmfusion-free-release-tainted && \
 	rpm-ostree override remove \
@@ -14,24 +14,21 @@ RUN rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 	    libpostproc-free \
 	    libswresample-free \
 	    libswscale-free \
+	    anaconda-core anaconda-gui anaconda-tui \
+	    initial-setup-gui-wayland-generic initial-setup initial-setup-gui \
+	    firefox firefox-langpacks \
+	    virtualbox-guest-additions \
+	    nano nano-default-editor \
+	    mint-x-icons \
+	    mint-y-icons \
+	    mint-y-theme \
+	    plocate \
+	    --install vim-default-editor \
 	    --install ffmpeg && \
 	ostree container commit
 
-# remove some annoyances
-RUN rpm-ostree override remove \
-	firefox firefox-langpacks \
-	virtualbox-guest-additions \
-	nano nano-default-editor \
-	mint-x-icons \
-	mint-y-icons \
-	mint-y-theme \
- 	plocate \
-	--install vim-default-editor && \
-    ostree container commit
-
 # preferred packages
 RUN rpm-ostree install \
-  NetworkManager-tui \
   alsa-firmware \
   fuse \
   gnome-themes-extra \
