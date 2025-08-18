@@ -35,6 +35,7 @@ RUN rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 		mint-x-icons \
 		mint-y-icons \
 		mint-y-theme \
+		xfwm4-themes greybird-light-theme greybird-dark-theme greybird-xfce4-notifyd-theme greybird-xfwm4-theme \
 		plocate \
 		--install vim-default-editor \
 		--install ffmpeg && \
