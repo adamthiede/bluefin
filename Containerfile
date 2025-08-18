@@ -12,7 +12,6 @@ RUN rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 		google-noto-sans-cjk-fonts \
 		intel-vaapi-driver \
 		libdvdcss \
-		keyd \
 		pipewire-plugin-libcamera && \
 	rpm-ostree override remove \
 	    ffmpeg-free \
