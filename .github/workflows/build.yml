@@ -89,11 +89,18 @@ jobs:
             org.opencontainers.image.description=${{ env.MY_IMAGE_DESC }}
             org.opencontainers.image.title=${{ env.MY_IMAGE_NAME }}
 
+      - name: get latest fedora version
+        id: fver
+        run: |
+          echo "FEDORA=$(curl 'https://bodhi.fedoraproject.org/releases/?state=current'|jq -r '.releases[]|select(.name|startswith("F"))|.version'|sort -r|head -n1)" >> $GITHUB_OUTPUT
+
       # Build image using Buildah action
       - name: Build Image
         id: build_image
         uses: redhat-actions/buildah-build@v2
         with:
+          extra-args: |
+            FEDORA=${{ github.output.fver.FEDORA }}
           containerfiles: |
             ./Containerfile
           # Postfix image name with -custom to make it a little more descriptive
