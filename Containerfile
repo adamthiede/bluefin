@@ -22,6 +22,11 @@ RUN rpm-ostree override remove \
 	firefox firefox-langpacks \
 	virtualbox-guest-additions \
 	nano nano-default-editor \
+	mint-x-icons \
+	mint-y-icons \
+	mint-y-theme \
+	anaconda-core \
+	podman \
  	plocate \
 	--install vim-default-editor && \
     ostree container commit
@@ -32,10 +37,7 @@ RUN rpm-ostree install \
   alsa-firmware \
   fuse \
   gnome-themes-extra \
-  google-noto-sans-balinese-fonts \
   google-noto-sans-cjk-fonts \
-  google-noto-sans-javanese-fonts \
-  google-noto-sans-sundanese-fonts \
   htop \
   intel-vaapi-driver \
   libdvdcss \
