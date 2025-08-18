@@ -43,6 +43,10 @@ RUN rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 		--install ffmpeg && \
 	ostree container commit
 
+COPY configs/panel-default.xml /etc/xdg/xfce4/panel/default.xml
+COPY configs/keyboardshortcuts-default.xml /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+COPY configs/xsettings-default.xml /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
+
 RUN mkdir -p /var/lib/alternatives && \
     curl -L https://github.com/ublue-os/config/raw/main/files/usr/etc/containers/policy.json -o /etc/containers/policy.json && \
     echo -e "[Daemon]\nAutomaticUpdatePolicy=stage\n" > /etc/rpm-ostreed.conf && \
