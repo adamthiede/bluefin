@@ -35,6 +35,6 @@ Main changes:
 - redshift for screen temperature adjustment
 - pre-configured theme and desktop layout
 - elementary xfce icons
-- flatpak removed (flatpak applications take up a lot of space; the systems I'm targeting have 16, 32, or 64 GB of storage)
 - automatic ostree updates
+- flathub remote added - flatpaks take up a lot of space, but it's a useful way to have applications if you have the storage.
 
