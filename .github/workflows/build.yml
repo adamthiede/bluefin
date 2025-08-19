@@ -104,7 +104,7 @@ jobs:
         with:
           extra-args: |
             --build-arg FEDORA=${{ steps.fver.outputs.fver }}
-            --build-arg CHROME=${{ matrix.tags }}
+            --build-arg CHROME=${{ matrix.tag }}
           containerfiles: |
             ./Containerfile
           # Postfix image name with -custom to make it a little more descriptive
