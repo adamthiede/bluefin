@@ -2,9 +2,9 @@ ARG FEDORA
 FROM quay.io/fedora-ostree-desktops/xfce-atomic:${FEDORA}
 
 ARG CHROME
-RUN bash -c "echo Chrome:${CHROME}; if [[ \"${CHROME}\" == \"chrome\" ]];then echo 'INSTALLING CHROME'; rpm-ostree install https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm; fi"
-
-RUN rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" && \
+	# if chrome is specified, install it and remove firefox
+RUN	bash -c "if [[ \"${CHROME}\" == \"chrome\" ]];then rpm-ostree install https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm; rpm-ostree override remove firefox firefox-langpacks; fi" && \
+	rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" && \
 	rpm-ostree install rpmfusion-free-release-tainted && \
 	rpm-ostree install https://repos.fyralabs.com/terra$(rpm -E %fedora)/terra-release-0:$(rpm -E %fedora)-4.noarch.rpm && \
 	rpm-ostree install \
