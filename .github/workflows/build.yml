@@ -44,7 +44,7 @@ jobs:
         shell: bash
         run: |
           # Generate a timestamp for creating an image version history
-          TIMESTAMP="$(date +%Y%m%d)"
+          TIMESTAMP="$(date +%Y%m%d)${{ matrix.tag }}"
           COMMIT_TAGS=()
           BUILD_TAGS=()
 

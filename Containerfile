@@ -3,11 +3,13 @@ ARG CHROME
 # get latest fedora version at all times
 FROM quay.io/fedora-ostree-desktops/xfce-atomic:${FEDORA}
 
-# install multimedia stuff; remove annoyances
+ENV CHROME=${CHROME}
+env FEDORA=${FEDORA}
+RUN bash -c "echo Chrome:${CHROME} $CHROME Fedora:${FEDORA} $FEDORA; if [[ \"${CHROME}\" == \"chrome\" ]];then echo 'INSTALLING CHROME'; rpm-ostree install https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm; fi"
+
 RUN rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" && \
 	rpm-ostree install rpmfusion-free-release-tainted && \
 	rpm-ostree install https://repos.fyralabs.com/terra$(rpm -E %fedora)/terra-release-0:$(rpm -E %fedora)-4.noarch.rpm && \
-	if [[ "$CHROME" == "chrome" ]];then rpm-ostree install https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm; fi && \
 	rpm-ostree install \
 		alsa-firmware \
 		fuse \
