@@ -30,7 +30,6 @@ RUN rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 		libswresample-free \
 		libswscale-free \
 		gparted \
-		flatpak fedora-flathub-remote \
 		ModemManager NetworkManager-wwan NetworkManager-bluetooth \
 		anaconda-core anaconda-gui anaconda-tui \
 		initial-setup-gui-wayland-generic initial-setup initial-setup-gui \
@@ -62,6 +61,7 @@ RUN mkdir -p /var/lib/alternatives && \
     systemctl enable keyd.service && \
     systemctl disable NetworkManager-wait-online.service && \
     cp /usr/share/applications/redshift-gtk.desktop /etc/xdg/autostart/ && \
+    flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo && \
     ln -s /etc/systemd/user/ostree-notify.timer /etc/systemd/user/default.target.wants/ && \
     ostree container commit
 ## NOTES:
