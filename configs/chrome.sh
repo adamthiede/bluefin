@@ -11,7 +11,7 @@ if [[ "$1" == "chrome" ]];then
     sleep 5
     rpm-ostree override remove firefox firefox-langpacks
     sleep 5
-    rpm-ostree install google-chrome-stable
+    sudo rpm-ostree install google-chrome-stable
     sleep 5
 else
     echo "--- NOT INSTALLING CHROME"
