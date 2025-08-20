@@ -50,6 +50,7 @@ COPY configs/keyboardshortcuts-default.xml /etc/xdg/xfce4/xfconf/xfce-perchannel
 COPY configs/xsettings-default.xml /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
 COPY configs/xfce4-power-manager.xml /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
 COPY configs/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
+COPY configs/link-opt.service /etc/systemd/user/link-opt.service
 
 COPY ostree-notify/ostree-notify.sh /usr/bin/ostree-notify.sh
 COPY ostree-notify/ostree-notify.timer /etc/systemd/user/ostree-notify.timer
@@ -60,6 +61,7 @@ RUN mkdir -p /var/lib/alternatives && \
     echo -e "[Daemon]\nAutomaticUpdatePolicy=stage\n" > /etc/rpm-ostreed.conf && \
     systemctl enable rpm-ostreed-automatic.timer && \
     systemctl enable keyd.service && \
+    systemctl enable link-opt.service && \
     systemctl disable NetworkManager-wait-online.service && \
     cp /usr/share/applications/redshift-gtk.desktop /etc/xdg/autostart/ && \
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo && \
