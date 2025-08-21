@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        tag: [chrome, latest]
+        tag: [chrome, latest, brave]
 
     permissions:
       contents: read

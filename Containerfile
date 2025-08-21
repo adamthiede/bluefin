@@ -4,6 +4,7 @@ FROM quay.io/fedora-ostree-desktops/xfce-atomic:${FEDORA}
 # if chrome is specified, install it and remove firefox
 ARG CHROME
 RUN	bash -c "if [[ \"${CHROME}\" == \"chrome\" ]];then echo 'INSTALLING CHROME'; mkdir -p /usr/lib/opt/google /var/opt; ln -s /var/opt /opt; ln -s /usr/lib/opt/google /var/opt/google; sed -e 's,enabled=0,enabled=1,' -i /etc/yum.repos.d/google-chrome.repo; wget https://dl.google.com/linux/linux_signing_key.pub; rpm --import linux_signing_key.pub; rpm-ostree install google-chrome-stable; rpm-ostree override remove firefox firefox-langpacks; fi" && \
+	bash -c "if [[ \"${CHROME}\" == \"brave\" ]];then echo 'INSTALLING BRAVE'; curl -fsSLo /etc/yum.repos.d/brave-browser.repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo; mkdir -p /usr/lib/opt/brave.com /var/opt; ln -s /var/opt /opt; ln -s /usr/lib/opt/brave.com /var/opt/brave.com; rpm-ostree install brave-browser; rpm-ostree override remove firefox firefox-langpacks; fi" && \
 	rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" && \
 	rpm-ostree install rpmfusion-free-release-tainted && \
 	rpm-ostree install https://repos.fyralabs.com/terra$(rpm -E %fedora)/terra-release-0:$(rpm -E %fedora)-4.noarch.rpm && \
