@@ -20,8 +20,7 @@ sudo rpm-ostree rebase ostree-image-signed:docker://ghcr.io/adamthiede/bluefin:l
 sudo reboot
 ```
 
-To use an image with Google Chrome instead of Firefox, replace `:latest` with `:chrome` int the above commands.
-
+For Brave or Chrome instead of Firefox, use `:brave` or `:chrome` instead of `:latest` in the commands above.
 
 # What is this?
 
