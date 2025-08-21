@@ -43,3 +43,4 @@ Main changes:
 
 ![screenshot of xfce desktop](screenshot.png)
 
+It's just [Fedora Xfce](https://fedoraproject.org/spins/xfce).
