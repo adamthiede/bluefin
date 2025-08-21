@@ -65,6 +65,7 @@ RUN mkdir -p /var/lib/alternatives && \
     systemctl enable link-opt.service && \
     systemctl disable NetworkManager-wait-online.service && \
     cp /usr/share/applications/redshift-gtk.desktop /etc/xdg/autostart/ && \
+    desktop-file-edit /etc/xdg/autostart/redshift-gtk.desktop --set-key=X-GNOME-Autostart-enabled --set-value=true && \
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo && \
     ln -s /etc/systemd/user/ostree-notify.timer /etc/systemd/user/default.target.wants/ && \
     ostree container commit
