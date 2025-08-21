@@ -39,3 +39,7 @@ Main changes:
 - automatic ostree updates
 - flathub remote added - flatpaks take up a lot of space, but it's a useful way to have applications if you have the storage.
 
+# What does it look like?
+
+![screenshot of xfce desktop](screenshot.png)
+
