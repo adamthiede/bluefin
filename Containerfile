@@ -42,6 +42,7 @@ RUN	bash -c "if [[ \"${CHROME}\" == \"chrome\" ]];then echo 'INSTALLING CHROME';
 		mint-y-theme \
 		xfwm4-themes greybird-light-theme greybird-dark-theme greybird-xfce4-notifyd-theme greybird-xfwm4-theme \
 		plocate \
+		localsearch \
 		--install vim-default-editor \
 		--install ffmpeg && \
 	ostree container commit
