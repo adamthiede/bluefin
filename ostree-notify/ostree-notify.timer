@@ -2,7 +2,7 @@
 Description=rpm-ostree notification of staged deployment
 
 [Timer]
-OnCalendar=OnCalendar=00/2:30
+OnCalendar=00/2:30
 Persistent=true
 
 [Install]
