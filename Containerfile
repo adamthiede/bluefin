@@ -12,7 +12,7 @@ RUN	bash -c "if [[ \"${CHROME}\" == \"chrome\" ]];then echo 'INSTALLING CHROME';
 		lightdm-gtk \
 		lightdm-gtk-greeter-settings \
 		xorg-x11-server-Xorg \
-		xorg-x11-drv-intel \
+		xorg-x11-drivers \
 		xorg-x11-drv-libinput \
 		xfce4-panel \
 		xfce4-whiskermenu-plugin \
