@@ -1,18 +1,28 @@
 ARG FEDORA
-FROM quay.io/fedora-ostree-desktops/xfce-atomic:${FEDORA}
+FROM quay.io/fedora-ostree-desktops/base-atomic:${FEDORA}
 
 # if chrome is specified, install it and remove firefox
 ARG CHROME
 RUN	bash -c "if [[ \"${CHROME}\" == \"chrome\" ]];then echo 'INSTALLING CHROME'; mkdir -p /usr/lib/opt/google /var/opt; ln -s /var/opt /opt; ln -s /usr/lib/opt/google /var/opt/google; sed -e 's,enabled=0,enabled=1,' -i /etc/yum.repos.d/google-chrome.repo; wget https://dl.google.com/linux/linux_signing_key.pub; rpm --import linux_signing_key.pub; rpm-ostree install google-chrome-stable; rpm-ostree override remove firefox firefox-langpacks; fi" && \
 	bash -c "if [[ \"${CHROME}\" == \"brave\" ]];then echo 'INSTALLING BRAVE'; curl -fsSLo /etc/yum.repos.d/brave-browser.repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo; mkdir -p /usr/lib/opt/brave.com /var/opt; ln -s /var/opt /opt; ln -s /usr/lib/opt/brave.com /var/opt/brave.com; rpm-ostree install brave-browser; rpm-ostree override remove firefox firefox-langpacks; fi" && \
 	rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" && \
+	rpm-ostree install "https://repos.fyralabs.com/terra43/keyd-0%3A2.5.0-3.fc43.x86_64.rpm" && \
 	rpm-ostree install rpmfusion-free-release-tainted && \
-	rpm-ostree install https://repos.fyralabs.com/terra$(rpm -E %fedora)/terra-release-0:$(rpm -E %fedora)-4.noarch.rpm && \
 	rpm-ostree install \
+		lightdm-gtk \
+		lightdm-gtk-greeter-settings \
+		xorg-x11-server-Xorg \
+		xorg-x11-drv-libinput \
+		xfce4-panel \
+		xfce4-whiskermenu-plugin \
+		xfce4-session \
+		xfce4-appfinder \
+		xfce4-panel-profiles \
+		xfce4-screenshooter \
+		xfce4-power-manager \
 		alsa-firmware \
 		fuse \
 		redshift-gtk \
-		keyd \
 		libreoffice-calc libreoffice-impress libreoffice-writer \
 		gnome-themes-extra \
 		google-noto-sans-cjk-fonts \
@@ -31,18 +41,8 @@ RUN	bash -c "if [[ \"${CHROME}\" == \"chrome\" ]];then echo 'INSTALLING CHROME';
 		libpostproc-free \
 		libswresample-free \
 		libswscale-free \
-		gparted \
-		ModemManager NetworkManager-wwan NetworkManager-bluetooth \
-		anaconda-core anaconda-gui anaconda-tui \
-		initial-setup-gui-wayland-generic initial-setup initial-setup-gui \
 		virtualbox-guest-additions \
 		nano nano-default-editor \
-		mint-x-icons \
-		mint-y-icons \
-		mint-y-theme \
-		xfwm4-themes greybird-light-theme greybird-dark-theme greybird-xfce4-notifyd-theme greybird-xfwm4-theme \
-		plocate \
-		localsearch \
 		--install vim-default-editor \
 		--install ffmpeg && \
 	ostree container commit
