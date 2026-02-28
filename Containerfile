@@ -3,7 +3,7 @@ ARG FROM
 FROM quay.io/fedora-ostree-desktops/${FROM}:${FEDORA}
 
 RUN	rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" && \
-	rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm" && \
+	rpm-ostree install "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm" && \
 	rpm-ostree install rpmfusion-free-release-tainted && \
 	rpm-ostree override remove \
 		ffmpeg-free \
