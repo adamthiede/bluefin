@@ -17,7 +17,6 @@ RUN	rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 		libswresample-free \
 		libswscale-free \
 		virtualbox-guest-additions \
-		bolt \
 		firefox \
 		firefox-langpacks \
 		nano nano-default-editor \
@@ -35,7 +34,10 @@ RUN	rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 		&& \
 	ostree container commit
 
-RUN bash -c "if [[ $FROM == 'silverblue' ]];then rpm-ostree override remove gnome-software gnome-software-rpm-ostree && rpm-ostree install gnome-shell-extension-caffeine gnome-shell-extension-appindicator && ostree container commit; fi"
+# specific silverblue removals and additions
+RUN bash -c "if [[ $FROM == 'silverblue' ]];then rpm-ostree override remove bolt gnome-software gnome-software-rpm-ostree && rpm-ostree install gnome-shell-extension-caffeine gnome-shell-extension-appindicator && ostree container commit; fi"
+# specific kinoite removals and additions
+RUN bash -c "if [[ $FROM == 'kinoite' ]];then echo 'nothing for now'; fi"
 
 COPY ostree-notify/ostree-notify.sh /usr/bin/ostree-notify.sh
 COPY ostree-notify/ostree-notify.timer /etc/systemd/user/ostree-notify.timer
