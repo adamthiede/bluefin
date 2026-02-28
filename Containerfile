@@ -35,7 +35,7 @@ RUN	rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 	ostree container commit
 
 # specific silverblue removals and additions
-RUN bash -c "if [[ $FROM == 'silverblue' ]];then rpm-ostree override remove bolt gnome-software gnome-software-rpm-ostree && rpm-ostree install gnome-shell-extension-caffeine gnome-shell-extension-appindicator gnome-tweaks && ostree container commit; fi"
+RUN bash -c "if [[ $FROM == 'silverblue' ]];then rpm-ostree override remove bolt gnome-software gnome-software-rpm-ostree && rpm-ostree install gnome-shell-extension-caffeine gnome-shell-extension-appindicator gnome-tweaks gnome-extensions-app && ostree container commit; fi"
 # specific kinoite removals and additions
 RUN bash -c "if [[ $FROM == 'kinoite' ]];then echo 'nothing for now'; fi"
 
