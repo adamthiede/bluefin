@@ -37,7 +37,7 @@ RUN	rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 # specific silverblue removals and additions
 RUN bash -c "if [[ $FROM == 'silverblue' ]];then rpm-ostree override remove bolt gnome-software gnome-software-rpm-ostree && rpm-ostree install gnome-shell-extension-caffeine gnome-shell-extension-appindicator gnome-tweaks gnome-extensions-app && ostree container commit; fi"
 # specific kinoite removals and additions
-RUN bash -c "if [[ $FROM == 'kinoite' ]];then rpm-ostree override remove plasma-discover plasma-discover-rpm-ostree plasma-discover-flatpak plasma-discover-notifier plasma-discover-kns plasma-discover-libs kwrite && rpm-ostree install kate && ostree container commit; fi"
+RUN bash -c "if [[ $FROM == 'kinoite' ]];then rpm-ostree override remove plasma-discover plasma-discover-rpm-ostree plasma-discover-flatpak plasma-discover-notifier plasma-discover-kns plasma-discover-libs && ostree container commit; fi"
 
 COPY ostree-notify/ostree-notify.sh /usr/bin/ostree-notify.sh
 COPY ostree-notify/ostree-notify.timer /etc/systemd/user/ostree-notify.timer
