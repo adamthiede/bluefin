@@ -105,7 +105,7 @@ jobs:
         with:
           extra-args: |
             --build-arg FEDORA=${{ steps.fver.outputs.fver }}
-            --build-arg FROM=${{ matrix.tag }}
+            --build-arg FROM=${{ matrix.from }}
           containerfiles: |
             ./Containerfile
           # Postfix image name with -custom to make it a little more descriptive
