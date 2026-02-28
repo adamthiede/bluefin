@@ -15,12 +15,9 @@ RUN	rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 		libpostproc-free \
 		libswresample-free \
 		libswscale-free \
-		mesa-va-drivers \
 		virtualbox-guest-additions \
 		nano nano-default-editor \
 		--install vim-default-editor \
-		--install mesa-va-drivers-freeworld \
-		--install mesa-filesystem \
 		--install ffmpeg && \
 	rpm-ostree install \
 		libdvdcss \
