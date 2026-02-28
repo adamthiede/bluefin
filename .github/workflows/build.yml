@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        #tag: [chrome, latest, brave]
+        from: [silverblue, kinoite]
         tag: [latest]
 
     permissions:
@@ -37,8 +37,8 @@ jobs:
       - name: Checkout Push to Registry action
         uses: actions/checkout@v5
 
-      #- name: Maximize build space
-      #  uses: ublue-os/remove-unwanted-software@v8
+      - name: Maximize build space
+        uses: flatpaks/runner-cleanup@2
 
       - name: Generate tags
         id: generate-tags
@@ -105,7 +105,7 @@ jobs:
         with:
           extra-args: |
             --build-arg FEDORA=${{ steps.fver.outputs.fver }}
-            --build-arg CHROME=${{ matrix.tag }}
+            --build-arg FROM=${{ matrix.tag }}
           containerfiles: |
             ./Containerfile
           # Postfix image name with -custom to make it a little more descriptive

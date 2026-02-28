@@ -1,9 +1,0 @@
-[Unit]
-Description=link opt directories
-
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/bash -c "for d in /usr/lib/opt/*; do if [[ -d $d ]]; then ln -sf $d /var/opt/$(basename $d); fi; done"
-
-[Install]
-WantedBy=default.target
