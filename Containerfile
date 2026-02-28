@@ -1,6 +1,7 @@
 ARG FEDORA
 ARG FROM
 FROM quay.io/fedora-ostree-desktops/${FROM}:${FEDORA}
+ARG FROM
 
 RUN	rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" && \
 	rpm-ostree install "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm" && \
@@ -16,6 +17,11 @@ RUN	rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 		libswresample-free \
 		libswscale-free \
 		virtualbox-guest-additions \
+		gnome-software \
+		gnome-software-rpm-ostree \
+		bolt \
+		firefox \
+		firefox-langpacks \
 		nano nano-default-editor \
 		--install vim-default-editor \
 		--install ffmpeg && \
@@ -23,6 +29,10 @@ RUN	rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 		libdvdcss \
 		libva-intel-driver \
 		intel-media-driver \
+		tailscale \
+		NetworkManager-tui \
+		gvfs-nfs \
+		syncthing \
 		&& \
 	ostree container commit
 
