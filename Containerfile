@@ -3,6 +3,7 @@ ARG FROM
 FROM quay.io/fedora-ostree-desktops/${FROM}:${FEDORA}
 
 RUN	rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" && \
+	rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm" && \
 	rpm-ostree install rpmfusion-free-release-tainted && \
 	rpm-ostree override remove \
 		ffmpeg-free \
@@ -14,18 +15,16 @@ RUN	rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 		libpostproc-free \
 		libswresample-free \
 		libswscale-free \
+		mesa-va-drivers-freeworld \
 		virtualbox-guest-additions \
 		nano nano-default-editor \
 		--install vim-default-editor \
+		--install mesa-va-drivers \
 		--install ffmpeg && \
 	rpm-ostree install \
 		libdvdcss \
 		libva-intel-driver \
 		intel-media-driver \
-		&& \
-	rpm-ostree override remove \
-		mesa-va-drivers-freeworld \
-		--install mesa-va-drivers \
 		&& \
 	ostree container commit
 
