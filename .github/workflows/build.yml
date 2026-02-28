@@ -25,7 +25,6 @@ jobs:
     strategy:
       matrix:
         from: [silverblue, kinoite]
-        tag: [latest]
 
     permissions:
       contents: read
@@ -45,7 +44,7 @@ jobs:
         shell: bash
         run: |
           # Generate a timestamp for creating an image version history
-          TIMESTAMP="$(date +%Y%m%d)${{ matrix.tag }}"
+          TIMESTAMP="$(date +%Y%m%d)${{ matrix.from }}"
           COMMIT_TAGS=()
           BUILD_TAGS=()
 
