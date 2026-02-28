@@ -17,8 +17,6 @@ RUN	rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 		libswresample-free \
 		libswscale-free \
 		virtualbox-guest-additions \
-		gnome-software \
-		gnome-software-rpm-ostree \
 		bolt \
 		firefox \
 		firefox-langpacks \
@@ -33,8 +31,11 @@ RUN	rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 		NetworkManager-tui \
 		gvfs-nfs \
 		syncthing \
+		gnome-themes-extra \
 		&& \
 	ostree container commit
+
+RUN bash -c "if [[ $FROM == 'silverblue' ]];then rpm-ostree override remove gnome-software gnome-software-rpm-ostree gnome-shell-extension-caffeine gnome-shell-extension-appindicator && ostree container commit; fi"
 
 COPY ostree-notify/ostree-notify.sh /usr/bin/ostree-notify.sh
 COPY ostree-notify/ostree-notify.timer /etc/systemd/user/ostree-notify.timer
