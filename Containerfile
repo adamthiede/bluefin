@@ -33,6 +33,7 @@ RUN	rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 		gnome-themes-extra \
 		distrobox \
 		fastfetch \
+		htop \
 		&& \
 	ostree container commit
 
