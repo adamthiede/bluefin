@@ -20,6 +20,7 @@ RUN	rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 		firefox \
 		firefox-langpacks \
 		nano nano-default-editor \
+		default-fonts-core-emoji google-noto-color-emoji-fonts \
 		--install vim-default-editor \
 		--install ffmpeg && \
 	rpm-ostree install \
