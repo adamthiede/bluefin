@@ -31,7 +31,6 @@ RUN	rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 		NetworkManager-tui \
 		gvfs-nfs \
 		syncthing \
-		gnome-themes-extra \
 		distrobox \
 		fastfetch \
 		htop \
