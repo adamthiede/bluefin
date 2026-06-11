@@ -3,44 +3,23 @@ ARG FROM
 FROM quay.io/fedora-ostree-desktops/${FROM}:${FEDORA}
 ARG FROM
 
-RUN	rpm-ostree install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" && \
-	rpm-ostree install "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm" && \
-	rpm-ostree install rpmfusion-free-release-tainted && \
-	rpm-ostree override remove \
-		ffmpeg-free \
-		libavcodec-free \
-		libavdevice-free \
-		libavfilter-free \
-		libavformat-free \
-		libavutil-free \
-		libpostproc-free \
-		libswresample-free \
-		libswscale-free \
+# remove basic unneeded packages and install preferred utilities
+RUN	rpm-ostree override remove \
 		virtualbox-guest-additions \
-		firefox \
-		firefox-langpacks \
+		firefox firefox-langpacks \
 		nano nano-default-editor \
 		default-fonts-core-emoji google-noto-color-emoji-fonts google-noto-emoji-fonts \
 		--install vim-default-editor \
-		--install ffmpeg && \
+	&& \
 	rpm-ostree install \
-		libdvdcss \
-		libva-intel-driver \
-		intel-media-driver \
 		tailscale \
 		NetworkManager-tui \
 		gvfs-nfs \
 		syncthing \
 		distrobox \
-		fastfetch \
-		htop \
-		&& \
+		gnome-tweaks \
+	&& \
 	ostree container commit
-
-# specific silverblue removals and additions
-RUN bash -c "if [[ $FROM == 'silverblue' ]];then rpm-ostree override remove gnome-software gnome-software-rpm-ostree && rpm-ostree install gnome-shell-extension-caffeine gnome-shell-extension-appindicator gnome-shell-extension-dash-to-dock gnome-tweaks gnome-extensions-app && ostree container commit; fi"
-# specific kinoite removals and additions
-RUN bash -c "if [[ $FROM == 'kinoite' ]];then rpm-ostree override remove plasma-discover plasma-discover-rpm-ostree plasma-discover-flatpak plasma-discover-notifier plasma-discover-kns plasma-discover-libs && ostree container commit; fi"
 
 COPY ostree-notify/ostree-notify.sh /usr/bin/ostree-notify.sh
 COPY ostree-notify/ostree-notify.timer /etc/systemd/user/ostree-notify.timer

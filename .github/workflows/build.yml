@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        from: [silverblue, kinoite]
+        from: [silverblue]
 
     permissions:
       contents: read
