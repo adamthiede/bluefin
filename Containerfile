@@ -8,6 +8,7 @@ RUN	rpm-ostree override remove \
 		virtualbox-guest-additions \
 		firefox firefox-langpacks \
 		nano nano-default-editor \
+		gnome-software gnome-software-rpm-ostree yelp \
 		default-fonts-core-emoji google-noto-color-emoji-fonts google-noto-emoji-fonts \
 		--install vim-default-editor \
 	&& \
